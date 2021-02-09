@@ -10,3 +10,8 @@ __Increases the page loading speed accordingly. You watch the movie by clicking 
 * A variant with an advertising poster, before and after triggering.
 
 <img src="image/1_0.png" alt="drawing" width="24%"/> <img src="image/1_1.png" alt="drawing" width="24%"/>
+
+~~p. s to install an unsigned RVP2-YVC.xpi~~  
+* __enter__: about:config  
+* __find__: xpinstall.signatures.required  
+* __replace__: true on file  

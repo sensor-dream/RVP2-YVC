@@ -13,7 +13,7 @@
   "applications": {
     "gecko": {
       "id": "rvp2-yvc@sensor-dream.ru",
-      "strict_min_version": "85.0"
+      "strict_min_version": "75.0"
     }
   },
 
