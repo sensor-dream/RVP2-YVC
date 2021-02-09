@@ -1,0 +1,27 @@
+{
+
+  "manifest_version": 2,
+  "name": "rvp2-yvc",
+  "version": "1.0",
+
+  "description": "Remove video player for the trailer from the yandex video collection.",
+  "homepage_url": "https://rvp2-yvcsensor-dream.ru",
+  "icons": {
+    "96": "icons/SDBS_colored_squares_1600.svg"
+  },
+
+  "applications": {
+    "gecko": {
+      "id": "rvp2-yvc@sensor-dream.ru",
+      "strict_min_version": "85.0"
+    }
+  },
+
+  "content_scripts": [
+    {
+      "matches": ["https://yandex.ru/search/*"],
+      "js": ["rvp2-yvc.js"]
+    }
+  ]
+
+}
