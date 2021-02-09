@@ -14,4 +14,4 @@ __Increases the page loading speed accordingly. You watch the movie by clicking 
 ~~p. s to install an unsigned RVP2-YVC.xpi~~  
 * __enter__: about:config  
 * __find__: xpinstall.signatures.required  
-* __replace__: true on file  
+* __replace__: true on false  
