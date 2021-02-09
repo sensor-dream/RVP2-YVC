@@ -5,7 +5,7 @@
   "version": "1.0",
 
   "description": "Remove video player for the trailer from the yandex video collection.",
-  "homepage_url": "https://rvp2-yvcsensor-dream.ru",
+  "homepage_url": "https://github.com/sensor-dream/RVP2-YVC",
   "icons": {
     "96": "icons/SDBS_colored_squares_1600.svg"
   },
