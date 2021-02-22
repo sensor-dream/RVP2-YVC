@@ -15,8 +15,7 @@ document.addEventListener("DOMNodeInserted", (event) => {
     console.info('Init extension - rvp2-yvc@sensor-dream.ru. Check of listening html collections')
 
   let elements = [
-    'video-player2 video-player2_dynamic',
-    'entity-template__media'
+    'video-player2 video-player2_dynamic'
   ];
 
   for (let element of elements) {

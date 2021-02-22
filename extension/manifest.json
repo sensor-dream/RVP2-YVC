@@ -2,7 +2,7 @@
 
   "manifest_version": 2,
   "name": "rvp2-yvc",
-  "version": "1.0.1",
+  "version": "1.0.2",
 
   "description": "Remove video player for the trailer from the yandex video collection.",
   "homepage_url": "https://github.com/sensor-dream/RVP2-YVC",
