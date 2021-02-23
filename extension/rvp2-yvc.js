@@ -17,26 +17,44 @@
 
   console.info('Init extension - rvp2-yvc@sensor-dream.ru. Check of player-mediator is OK.');
 
+  let chk = function() {
 
-  let chk = function(b) {
+    let a = d.getElementsByClassName('entity-template player-mediator i-bem');
 
-    Array('entity-template__media', 'entity-template__information', 'divider', 'ratings-list ratings-list_with-stars ratings-list_with-pscore').forEach(e => {
-      let c = b[0].getElementsByClassName(e);
-      if (c.length > 0) {
-        c[0].remove();
-        console.info('Child element with class ' + e + ', removed.');
+    if (a.length > 0) {
+
+      Array('entity-template__media', 'entity-template__information', 'divider', 'ratings-list ratings-list_with-stars ratings-list_with-pscore').forEach(c => {
+
+        let b = a[0].getElementsByClassName(c);
+
+        if (b.length > 0) {
+
+          b[0].remove();
+
+          console.info('Child element with class ' + c + ', removed.');
+
+        }
+
+      });
+
+      if (a[0].getElementsByClassName('rvp2-yvc-sensor-dream-ru').length == 0) {
+
+        a[0].insertAdjacentHTML("afterbegin", '<div class="related__header typo typo_text_l typo_line_m typo_type_bold rvp2-yvc-sensor-dream-ru">Modified - rvp2-yvc@sensor-dream.ru</div>');
+
+        console.info('Added a message from the rvp2-yvc@sensor-dream.ru addon');
+
       }
-    });
 
-    if (b[0].getElementsByClassName('rvp2-yvc-sensor-dream-ru').length == 0) {
-      b[0].insertAdjacentHTML("afterbegin", '<div class="related__header typo typo_text_l typo_line_m typo_type_bold rvp2-yvc-sensor-dream-ru">Modified - rvp2-yvc@sensor-dream.ru</div>');
-      console.info('Added a message from the rvp2-yvc@sensor-dream.ru addon');
     }
+
   }
 
+  chk();
+
   d.addEventListener("DOMNodeInserted", (event) => {
-    let a = d.getElementsByClassName('entity-template player-mediator i-bem');
-    a.length > 0 && chk(a);
+
+    chk();
+
   }, false);
 
 })(document);
