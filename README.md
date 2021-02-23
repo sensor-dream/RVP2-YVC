@@ -15,3 +15,7 @@ __Increases the page loading speed accordingly. You watch the movie by clicking 
 * __enter__: about:config  
 * __find__: xpinstall.signatures.required  
 * __replace__: true on false  
+
+~~or~~
+
+* To test and debug unsigned extensions, enter - about:debugging in the query string

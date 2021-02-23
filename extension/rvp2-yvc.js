@@ -10,22 +10,33 @@
  * @Creation date file: 10.02.2021, 04:15:27
  */
 
-document.addEventListener("DOMNodeInserted", (event) => {
+/**
+ * To test and debug unsigned extensions, enter - about:debugging in the query string.
+ */
+(function(d) {
 
-    console.info('Init extension - rvp2-yvc@sensor-dream.ru. Check of listening html collections')
+  console.info('Init extension - rvp2-yvc@sensor-dream.ru. Check of player-mediator is OK.');
 
-  let elements = [
-    'video-player2 video-player2_dynamic'
-  ];
 
-  for (let element of elements) {
-    let obj = document.getElementsByClassName(element);
-    if (obj.length > 0) {
-      for (let i = 0, len = obj.length; i < len; i++) {
-        console.info('Check is OK, found classes : ' + element + ' and the element with these classes removed.');
-        obj[i].remove();
+  let chk = function(b) {
+
+    Array('entity-template__media', 'entity-template__information', 'divider', 'ratings-list ratings-list_with-stars ratings-list_with-pscore').forEach(e => {
+      let c = b[0].getElementsByClassName(e);
+      if (c.length > 0) {
+        c[0].remove();
+        console.info('Child element with class ' + e + ', removed.');
       }
+    });
+
+    if (b[0].getElementsByClassName('rvp2-yvc-sensor-dream-ru').length == 0) {
+      b[0].insertAdjacentHTML("afterbegin", '<div class="related__header typo typo_text_l typo_line_m typo_type_bold rvp2-yvc-sensor-dream-ru">Modified - rvp2-yvc@sensor-dream.ru</div>');
+      console.info('Added a message from the rvp2-yvc@sensor-dream.ru addon');
     }
   }
 
-}, false);
+  d.addEventListener("DOMNodeInserted", (event) => {
+    let a = d.getElementsByClassName('entity-template player-mediator i-bem');
+    a.length > 0 && chk(a);
+  }, false);
+
+})(document);
