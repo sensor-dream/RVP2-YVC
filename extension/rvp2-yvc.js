@@ -23,7 +23,7 @@
 
     if (a.length > 0) {
 
-      Array('entity-template__media', 'entity-template__information', 'divider', 'ratings-list ratings-list_with-stars ratings-list_with-pscore').forEach(c => {
+      Array('Polaroid', 'entity-template__media', 'entity-template__information', 'divider', 'ratings-list ratings-list_with-stars ratings-list_with-pscore').forEach(c => {
 
         let b = a[0].getElementsByClassName(c);
 
