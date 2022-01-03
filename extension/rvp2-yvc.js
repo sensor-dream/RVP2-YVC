@@ -15,46 +15,56 @@
  */
 (function(d) {
 
-  console.info('Init extension - rvp2-yvc@sensor-dream.ru. Check of player-mediator is OK.');
+    let chk = function() {
 
-  let chk = function() {
+        let a = d.getElementsByClassName('entity-template player-mediator i-bem');
 
-    let a = d.getElementsByClassName('entity-template player-mediator i-bem');
+        if (a.length > 0) {
 
-    if (a.length > 0) {
+            Array('entity-template__media', 'entity-template__information', 'divider', 'ratings-list ratings-list_with-stars ratings-list_with-pscore').forEach(c => {
 
-      Array('Polaroid', 'entity-template__media', 'entity-template__information', 'divider', 'ratings-list ratings-list_with-stars ratings-list_with-pscore').forEach(c => {
+                let b = a[0].getElementsByClassName(c);
+                if (b.length > 0) {
+                    b[0].remove();
+                    console.info('Child element with class ' + c + ', removed.');
+                }
+            });
 
-        let b = a[0].getElementsByClassName(c);
+            if (a[0].getElementsByClassName("rvp2-yvc-sensor-dream-ru").length == 0) {
+                a[0].insertAdjacentHTML(
+                    "afterbegin",
+                    '<div class="related__header typo typo_text_l typo_line_m typo_type_bold rvp2-yvc-sensor-dream-ru">Modified - rvp2-yvc@sensor-dream.ru</div>'
+                );
+                console.info("Added a message from the rvp2-yvc@sensor-dream.ru addon");
+            }
 
-        if (b.length > 0) {
-
-          b[0].remove();
-
-          console.info('Child element with class ' + c + ', removed.');
 
         }
 
-      });
-
-      if (a[0].getElementsByClassName('rvp2-yvc-sensor-dream-ru').length == 0) {
-
-        a[0].insertAdjacentHTML("afterbegin", '<div class="related__header typo typo_text_l typo_line_m typo_type_bold rvp2-yvc-sensor-dream-ru">Modified - rvp2-yvc@sensor-dream.ru</div>');
-
-        console.info('Added a message from the rvp2-yvc@sensor-dream.ru addon');
-
-      }
-
     }
 
-  }
-
-  chk();
-
-  d.addEventListener("DOMNodeInserted", (event) => {
+    console.info('Init extension - rvp2-yvc@sensor-dream.ru. Check of player-mediator and entity carousel polaroid popup is OK.');
 
     chk();
 
-  }, false);
+    let chkPolaroid = function(){
+
+        a = d.getElementsByClassName('EntityCarousel-PolaroidPopupWrapper');
+        // a = d.getElementsByClassName('Popup2 Popup2_visible Popup2_target_anchor EntityCarousel-PolaroidPopup');
+        // a = d.getElementsByClassName('Polaroid');
+
+        if ( a.length > 0 ) {
+            console.info('Child element with class EntityCarousel-PolaroidPopup, removed.');
+            a[0].remove();
+        }
+    }
+
+    if (d.readyState == 'loading') {
+        d.addEventListener('DOMContentLoaded', (event) => { chkPolaroid(); }, false);
+    } else {
+        chkPolaroid();
+    }
+
+    d.addEventListener("DOMNodeInserted", (event) => { chk(); chkPolaroid(); }, false);
 
 })(document);
